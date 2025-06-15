@@ -18,12 +18,14 @@ for model in models:
     # Create custom x-axis labels with counts
     x_labels = [f"{cue}\n({cnt})" for cue, cnt in zip(model_data["Cue Type"], model_data["count"])]
 
+    model_name = "KoBERT" if model == "kobert" else "XLM-RoBERTa"
+
     plt.figure(figsize=(8, 5))
     plt.bar(x_labels, model_data["total_shap"], color="cornflowerblue", edgecolor="black")
-    plt.title(f"Cue Type Hierarchy by Total SHAP Value — {model}", fontsize=13)
-    plt.ylabel("Total SHAP Value")
+    plt.title(f"Cue Type Hierarchy by Mean SHAP Value — {model_name}", fontsize=13)
+    plt.ylabel("Mean SHAP Value")
     plt.xlabel("Cue Type (count)")
     plt.xticks(rotation=45, ha="right")
     plt.tight_layout()
-    plt.grid(axis="y", linestyle="--", alpha=0.6)
+    plt.grid(axis="y", linestyle="", alpha=0.6)
     plt.show()

@@ -44,10 +44,10 @@ def shap_graph_manual(shap_values, model, level):
     matplotlib.rcParams['axes.unicode_minus'] = False
     plt.figure(figsize=(10, 4))
     plt.bar(tokens, values, color=colors)
-    plt.title(f"SHAP Token Contributions for Speech Level {level}")
-    plt.xticks(rotation=45, fontsize=15)
-    plt.xlabel("Token")
-    plt.ylabel("SHAP Value")
+    plt.title(f"SHAP Token Contributions for Speech Level {level}", fontsize=16)
+    plt.xticks(rotation=45, fontsize=14)
+    plt.xlabel("Token", fontsize=13)
+    plt.ylabel("SHAP Value", fontsize=13)
     plt.tight_layout()
     # plt.show()
     plt.savefig(f"figures/mean_{model}_sp_{level}_manual.png")
@@ -61,8 +61,8 @@ def load_shap(model, level):
 # Speech levels to analyze
 speech_levels = [1, 2, 4, 5, 6]
 # speech_levels = [5, 6]
-#models = ["multi", "kobert"]
-models = ["kobert"]
+models = ["multi", "kobert"]
+#models = ["kobert"]
 
 # SHAP plot for each speech level
 for level in speech_levels:
